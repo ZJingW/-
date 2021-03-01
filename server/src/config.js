@@ -13,12 +13,12 @@ const sysConfig = {
 }
 
 const databaseConfig = {
-  host: "localhost",
-  user: "root",
-  password: "root",
-  name: "dormitory",
+  host: "localhost",  //数据库地址
+  user: "root",   //数据库的用户名
+  password: "123456",//数据库的密码
+  name: "dormitory", //数据库的名字
   rebuild: false, // 是否每次重启服务器时重建数据库
-  logging: false // 是否再控制台输出建表语句
+  logging: false // 是否在控制台输出建表语句
 }
 
 module.exports = {

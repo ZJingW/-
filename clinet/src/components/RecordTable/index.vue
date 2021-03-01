@@ -4,7 +4,7 @@
       <i v-if="icon" class="icon" :class="icon"></i> {{ title }}
     </div>
     <div class="table-wrapper">
-      <el-table :data="tableData" style="width: 100%">
+      <el-table :data="tableData" style="width: 100%" border="true">
         <el-table-column label="姓名">
           <template slot-scope="scope">
             <a @click="gotoStudentInfo(scope.row.userId)">{{

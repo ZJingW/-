@@ -1,8 +1,9 @@
+//数据库连接与生成的方法
 const { Sequelize } = require("sequelize")
 const { databaseConfig } = require("../config")
 
 class Db {
-  constructor() {
+  constructor() {  //类Db的原型的constructor方法来的
     this.sequelize = this._connect()
   }
   _connect() {

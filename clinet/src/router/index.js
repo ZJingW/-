@@ -49,6 +49,7 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: '概览', icon: 'dashboard', affix: true }
+        //affix在面包屑中不可删除啊啊啊
       }
     ]
   },

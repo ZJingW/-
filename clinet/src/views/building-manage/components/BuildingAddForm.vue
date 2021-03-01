@@ -2,7 +2,10 @@
   <div id="BuildingAddForm" class="main-card">
     <el-form class="form" :inline="true" ref="form" :model="formData">
       <el-form-item label="宿舍楼名" required prop="name">
-        <el-input v-model.trim="formData.name" placeholder="请输入"></el-input>
+        <el-input
+          v-model.trim="formData.name"
+          placeholder="请输入宿舍楼名"
+        ></el-input>
       </el-form-item>
       <el-form-item label="楼层数" required prop="floorCount">
         <el-input-number
@@ -35,7 +38,8 @@ export default {
       formData: {
         name: '',
         floorCount: 1,
-        roomCount: 1
+        roomCount: 1,
+        studentCount: 0
       }
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="record-selector">
-    <h1 class="main-title">记录筛选器</h1>
+    <h1 class="main-title">筛选记录</h1>
     <div class="main-card wrapper">
       <div class="input-group">
         <GroupSelector :selectorData="selectorData" />
@@ -12,20 +12,15 @@
           type="daterange"
           align="right"
           unlink-panels
-          range-separator="至"
+          range-separator="～"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
           :picker-options="pickerOptions"
         >
         </el-date-picker>
       </div>
-      <div class="btn-wrapper">
-        <el-button
-          @click="handleSubmit"
-          type="primary"
-          icon="el-icon-search"
-          circle
-        ></el-button>
+      <div class="btn">
+        <el-button @click="handleSubmit" type="primary">确定</el-button>
       </div>
     </div>
   </div>
@@ -80,6 +75,9 @@ export default {
       date: null
     }
   },
+  mounted() {
+    this.handleSubmit()
+  },
   methods: {
     handleSubmit() {
       const data = {}
@@ -106,15 +104,8 @@ export default {
   .input-group:first-child {
     margin-bottom: 20px;
   }
-  .btn-wrapper {
-    position: absolute;
-    right: 30px;
-    bottom: -25px;
-    .el-button {
-      width: 50px;
-      height: 50px;
-      box-shadow: 0 3px 5px rgba($color: #000000, $alpha: 0.2);
-    }
-  }
+}
+.btn {
+  text-align: center;
 }
 </style>

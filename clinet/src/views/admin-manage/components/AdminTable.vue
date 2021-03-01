@@ -1,16 +1,14 @@
 <template>
   <div calss="AdminTable">
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData" style="width: 100%" border="true">
       <el-table-column prop="name" label="姓名"> </el-table-column>
       <el-table-column prop="account" label="工号"> </el-table-column>
       <el-table-column prop="phone" label="手机号"> </el-table-column>
       <el-table-column label="身份">
         <template slot-scope="scope">
-          <span class="admin" v-if="scope.row.role === 'admin'">{{
-            scope.row.role.toUpperCase()
-          }}</span>
-          <span class="superAdmin" v-if="scope.row.role === 'superAdmin'">{{
-            scope.row.role.toUpperCase()
+          <span v-if="scope.row.role === 'admin'">{{ scope.row.role }}</span>
+          <span v-if="scope.row.role === 'superAdmin'">{{
+            scope.row.role
           }}</span>
         </template>
       </el-table-column>
@@ -21,7 +19,7 @@
               {{ building.name }}
             </span>
           </div>
-          <div class="all-room" v-else>
+          <div v-else>
             所有宿舍
           </div>
         </template>
@@ -46,12 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.admin {
-  color: $color-primary;
-}
-.superAdmin {
-  color: $color-origin;
-}
 .room-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -60,8 +52,5 @@ export default {
     display: block;
     margin: 5px 10px;
   }
-}
-.all-room {
-  color: rgba($color: #000000, $alpha: 0.3);
 }
 </style>

@@ -1,5 +1,8 @@
 const { Building } = require("../model")
-
+//controller 接口
+//middle中间件
+//model 模型层
+//util 工具层
 module.exports = {
   getStudents: async function(buildingId) {
     const FloorController = require("./floor_controller")

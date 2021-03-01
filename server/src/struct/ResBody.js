@@ -1,3 +1,4 @@
+//全局中新建的结构体
 module.exports = class ResBody {
   constructor(options) {
     if (options.success === undefined) {

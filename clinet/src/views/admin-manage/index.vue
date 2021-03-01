@@ -5,15 +5,13 @@
     <div class="wrapper top-wrapper">
       <div class="main-card left">
         <div class="title-wrapper">总数：{{ this.total }}</div>
-        <div class="content-wrapper">
-          <div class="admin admin-card">
-            <i class="el-icon-user"></i>
-            普通管理员: {{ adminCount }}
-          </div>
-          <div class="superAdmin admin-card">
-            <i class="el-icon-user"></i>
-            超级管理员: {{ superAdminCount }}
-          </div>
+        <div>
+          <i class="el-icon-user-solid"></i>
+          普通管理员: {{ adminCount }}
+        </div>
+        <div>
+          <i class="el-icon-user-solid"></i>
+          超级管理员: {{ superAdminCount }}
         </div>
       </div>
       <div class="main-card right">
@@ -44,10 +42,10 @@ export default {
   },
   data() {
     return {
-      adminsTableData: [],
-      total: 0,
-      superAdminCount: 0,
-      adminCount: 0
+      adminsTableData: [], //添加管理员
+      total: 0, //管理员总数
+      superAdminCount: 0, //管理员的个数
+      adminCount: 0 //超级管理员的个数
     }
   },
   mounted() {
@@ -84,19 +82,6 @@ export default {
       font-size: 28px;
       font-weight: bold;
       margin-bottom: 20px;
-    }
-    .admin-card {
-      padding: 20px;
-      border-radius: 5px;
-      border: 1px solid rgba($color: #000000, $alpha: 0.2);
-      color: #ffffff;
-    }
-    .admin {
-      margin-bottom: 20px;
-      background-color: $color-primary;
-    }
-    .superAdmin {
-      background-color: $color-origin;
     }
   }
   > .right {

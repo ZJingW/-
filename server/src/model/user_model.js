@@ -1,3 +1,4 @@
+//后台的Model层，定义数据库表的结构
 const db = require("../db/index")
 const { DataTypes, Model } = require("sequelize")
 const bcypt = require("../utils/bcypt")

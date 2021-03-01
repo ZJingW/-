@@ -13,6 +13,7 @@ export function getEvaluates(params) {
   })
 }
 
+//增加评价信息
 export function addEvaluate({ note, score, roomId }) {
   return request({
     url: '/evaluate/addEvaluate',
@@ -20,7 +21,7 @@ export function addEvaluate({ note, score, roomId }) {
     data: { note, score, roomId }
   })
 }
-
+//删除评价信息
 export function removeEvaluate(evaluateId) {
   return request({
     url: '/evaluate/removeEvaluate',

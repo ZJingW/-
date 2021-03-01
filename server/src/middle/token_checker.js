@@ -1,4 +1,5 @@
 const Token = require("../model/token_model")
+
 const { sysConfig } = require("../config")
 
 module.exports = function() {

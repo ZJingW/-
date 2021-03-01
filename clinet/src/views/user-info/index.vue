@@ -4,7 +4,7 @@
     <h1 class="main-title">选择学生</h1>
     <div class="wrapper">
       <el-tabs type="border-card">
-        <el-tab-pane label="级联选择">
+        <el-tab-pane label="级联选择搜索">
           <GroupSelector :selectorData="selectorData" />
           <el-button
             type="primary"
@@ -58,35 +58,46 @@
         </el-col>
       </el-row>
       <div class="bottom main-card" style="margin-top: 20px">
-        <div class="process-item">
-          <span>早起概率：</span>
-          <el-progress
-            :text-inside="true"
-            :stroke-width="26"
-            :percentage="Number((studentInfo.getupProb * 100).toFixed(2))"
-          ></el-progress>
-        </div>
-        <div class="process-item">
-          <span>早归概率：</span>
-          <el-progress
-            :text-inside="true"
-            :stroke-width="26"
-            :percentage="Number((studentInfo.backProb * 100).toFixed(2))"
-            status="success"
-          ></el-progress>
-        </div>
-        <div class="process-item">
-          <span>打扫概率：</span>
-          <el-progress
-            :text-inside="true"
-            :stroke-width="26"
-            :percentage="Number((studentInfo.cleanProb * 100).toFixed(2))"
-            status="warning"
-          ></el-progress>
-        </div>
+        <el-row :gutter="20">
+          <el-col span="6" offset="2">
+            <div class="process-item">
+              <el-progress
+                type="circle"
+                :text-inside="true"
+                :percentage="Number((studentInfo.getupProb * 100).toFixed(2))"
+              ></el-progress>
+              <span>早起概率</span>
+            </div>
+          </el-col>
+          <el-col span="6" offset="2">
+            <div class="process-item">
+              <el-progress
+                type="circle"
+                :text-inside="true"
+                :percentage="Number((studentInfo.backProb * 100).toFixed(2))"
+                status="success"
+              ></el-progress>
+              <span>早归概率</span>
+            </div>
+          </el-col>
+          <el-col span="6" offset="2">
+            <div class="process-item">
+              <el-progress
+                type="circle"
+                :text-inside="true"
+                :percentage="Number((studentInfo.cleanProb * 100).toFixed(2))"
+                status="warning"
+              ></el-progress>
+              <span>打扫概率</span>
+            </div>
+          </el-col>
+        </el-row>
       </div>
     </div>
-    <div class="no-data-tips main-card wrapper" v-else>请选择用户</div>
+
+    <div class="no-data-tips main-card wrapper" v-else>
+      请选择需要查询的学生
+    </div>
   </div>
 </template>
 
@@ -119,6 +130,7 @@ export default {
     fetchUserInfo(type, value) {
       getStudentInfoByIdOrAccount({ type, value }).then(res => {
         this.studentInfo = res.data
+        //console.log(this.studentInfo)
       })
     }
   },
@@ -173,7 +185,8 @@ export default {
     .process-item {
       span {
         display: block;
-        margin: 10px 0;
+        margin-top: 20px;
+        margin-right: 20px;
       }
     }
     :first-child span {

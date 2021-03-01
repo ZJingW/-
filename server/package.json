@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/app.js",
+    "dev": "nodemon ./src/app.js", 
     "start": "node ./src/app.js"
   },
-  "author": "",
+  "author": "ZJingW",
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.0.0",

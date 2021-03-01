@@ -24,7 +24,6 @@
       <RecordTable
         type="getup"
         title="早起动态"
-        icon="el-icon-alarm-clock"
         :table-data="getupTableData"
         :show-pagination="false"
       ></RecordTable>
@@ -33,7 +32,6 @@
       <RecordTable
         type="back"
         title="归宿动态"
-        icon="el-icon-s-home"
         :table-data="backTableData"
         :show-pagination="false"
       ></RecordTable>
@@ -42,7 +40,6 @@
       <RecordTable
         type="clean"
         title="打扫动态"
-        icon="el-icon-magic-stick"
         :table-data="cleanTableData"
         :show-pagination="false"
       ></RecordTable>

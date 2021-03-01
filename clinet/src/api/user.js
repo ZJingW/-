@@ -2,6 +2,7 @@ import request from '@/utils/request'
 
 export function register(data) {
   return request({
+    //用户注册
     url: '/user/register',
     method: 'post',
     data
@@ -10,6 +11,7 @@ export function register(data) {
 
 export function login(data) {
   return request({
+    //用户登陆
     url: '/user/login',
     method: 'post',
     data
@@ -18,12 +20,14 @@ export function login(data) {
 
 export function getInfo() {
   return request({
+    //  获取用户信息
     url: '/user/info',
     method: 'get'
   })
 }
 
 export function updateInfo({
+  //更新用户的信息
   name = null,
   phone = null,
   roomId = null,
@@ -52,7 +56,7 @@ export function getStudents(params) {
     params
   })
 }
-
+//查找系内的管理员
 export function searchAdmin(keywords) {
   return request({
     url: '/user/searchAdmin',
@@ -60,7 +64,7 @@ export function searchAdmin(keywords) {
     params: { keywords }
   })
 }
-
+//查找系统内用户
 export function searchUser(keywords) {
   return request({
     url: '/user/searchUser',
@@ -83,7 +87,7 @@ export function getAdminTableData() {
     method: 'get'
   })
 }
-
+//由id或者account获取学生的用户信息
 export function getStudentInfoByIdOrAccount({ type = 'id', value }) {
   console.log('value: ', value)
   return request({

@@ -8,62 +8,54 @@
     <!-- 顶部表单 -->
 
     <!-- 宿舍卡片 -->
-    <h1 class="main-title">宿舍楼一览</h1>
-    <div class="wrapper">
-      <el-row :gutter="30">
-        <el-col
-          v-for="(building, index) in buildings"
-          :key="building.id"
-          :sm="8"
-        >
-          <div class="room-card main-card">
-            <div class="title">NO.{{ index + 1 }} {{ building.name }}</div>
-            <div class="building-info">
-              楼层数：<span>{{ building.floorCount }}</span>
-            </div>
-            <div class="building-info">
-              房间数：<span>{{ building.roomCount }}</span>
-            </div>
-            <div class="building-info">
-              学生数：<span>{{ building.studentCount }}</span>
-            </div>
-            <div class="btn-wrapper">
-              <el-tooltip
-                effect="dark"
-                content="添加管理员"
-                placement="bottom-end"
-              >
-                <el-button
-                  type="warning"
-                  icon="el-icon-s-custom"
-                  circle
-                  @click="handleAddAdminBtnClick(building)"
-                ></el-button>
-              </el-tooltip>
-              <el-tooltip effect="dark" content="添加保洁人员" placement="top">
-                <el-button
-                  type="info"
-                  icon="el-icon-brush"
-                  circle
-                  @click="handleAddCleanerBtnClick(building)"
-                ></el-button>
-              </el-tooltip>
-              <el-tooltip
-                effect="dark"
-                content="删除宿舍楼"
-                placement="bottom-start"
-              >
-                <el-button
-                  type="danger"
-                  icon="el-icon-delete"
-                  circle
-                  @click="handleDelete(building)"
-                ></el-button>
-              </el-tooltip>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
+    <div>
+      <h1 class="main-title,page-wrapper">宿舍楼一览</h1>
+      <el-table :data="buildings" style="width: 100%" border="true">
+        <el-table-column label="序号" type="index" width="70" align="center">
+        </el-table-column>
+        <el-table-column label="宿舍楼名" width="250x">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.name }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="楼层数" width="250x">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.floorCount }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="房间数" width="250x">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.roomCount }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="学生数" width="250x">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.studentCount }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" align="center">
+          <template slot-scope="scope">
+            <el-button
+              size="mini"
+              type="primary"
+              @click="handleAddAdminBtnClick(scope.row)"
+              >添加管理员</el-button
+            >
+            <el-button
+              size="mini"
+              type="primary"
+              @click="handleAddCleanerBtnClick(scope.row)"
+              >添加保洁人员</el-button
+            >
+            <el-button
+              size="mini"
+              type="danger"
+              @click="handleDelete(scope.row)"
+              >删除宿舍楼</el-button
+            >
+          </template>
+        </el-table-column>
+      </el-table>
     </div>
     <!-- 宿舍卡片 -->
 
@@ -172,6 +164,7 @@ export default {
     fetchBuildings() {
       getBuildings().then(res => {
         this.buildings = res.data.buildings
+        // console.log(this.buildings)
       })
     },
     fetchAdminTableData() {
@@ -283,36 +276,6 @@ export default {
 .wrapper {
   margin: 40px 0;
 }
-.room-card {
-  overflow: visible;
-  margin-bottom: 30px;
-  position: relative;
-  .title {
-    margin: -20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: $color-primary;
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-  }
-  .building-info {
-    margin: 10px 0;
-    span {
-      font-weight: bold;
-    }
-  }
-  .btn-wrapper {
-    position: absolute;
-    right: 20px;
-    top: 40px;
-    .el-button {
-      box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
-    }
-  }
-}
-
 .admin-dialog {
   .search-wrapper {
     display: flex;

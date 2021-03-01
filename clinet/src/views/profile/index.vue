@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       user: {},
-      activeTab: 'account'
+      activeTab: 'account' //tabs标签页名字
     }
   },
   computed: {

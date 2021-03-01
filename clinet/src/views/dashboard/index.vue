@@ -22,6 +22,7 @@ export default {
   },
   created() {
     if (this.roles.includes('student')) {
+      //获取权限滴
       this.currentRole = 'studentDashboard'
     }
   }
