@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-/* Layout */
+/* Layout */ //整体的一个布局
 import Layout from '@/layout'
 
 // 同步路由
@@ -49,7 +49,7 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: '概览', icon: 'dashboard', affix: true }
-        //affix在面包屑中不可删除啊啊啊
+        //affix 在面包屑中不可被删除
       }
     ]
   },
@@ -77,7 +77,7 @@ export const asyncRoutes = [
     path: '/getupRecord',
     component: Layout,
     meta: {
-      roles: ['student']
+      roles: ['student'] //只有student才有权限显示该侧边栏
     },
     children: [
       {
@@ -255,13 +255,13 @@ export const asyncRoutes = [
     ]
   },
   // 404 页面要在最后引入
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true } //40一定要在最后加载才可以的
 ]
 
 const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
-    scrollBehavior: () => ({ y: 0 }),
+    scrollBehavior: () => ({ y: 0 }), //切换路由的时候滚动到最上面
     routes: constantRoutes
   })
 

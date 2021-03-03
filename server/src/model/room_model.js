@@ -8,7 +8,7 @@ class Room extends Model {
     status = 1,
     floorId,
     buildingId,
-    peopleNum = 6
+    peopleNum = 4
   }) {
     try {
       return await Room.create({

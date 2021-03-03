@@ -52,6 +52,7 @@ const mutations = {
 
 const actions = {
   // user login 在登录时调用，获取用户 Token 并写入 Store 和 Localstroge
+  //登陆
   login({ commit }, userInfo) {
     const { account, password } = userInfo
     return new Promise((resolve, reject) => {
@@ -69,6 +70,7 @@ const actions = {
   },
 
   // get user info 在获取用户信息时调用，向 store 中写入信息
+  //获取用户信息
   getInfo({ commit }) {
     return new Promise((resolve, reject) => {
       getInfo()
@@ -91,7 +93,7 @@ const actions = {
           commit('SET_NAME', name || '欢迎您，新用户')
           commit(
             'SET_AVATAR',
-            avatar || 'http://study.esunr.xyz/1582549904311.png'
+            avatar || 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
           )
           commit('SET_ROOM', room)
           commit('SET_FLOOR', floor)
@@ -119,6 +121,7 @@ const actions = {
   },
 
   // user logout
+  //登出
   logout({ commit, dispatch }) {
     return new Promise(resolve => {
       commit('SET_TOKEN', '')
@@ -134,6 +137,7 @@ const actions = {
   },
 
   // remove token
+  //删除token
   resetToken({ commit }) {
     return new Promise(resolve => {
       commit('SET_TOKEN', '')

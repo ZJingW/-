@@ -1,4 +1,5 @@
 <script>
+//根据父组件传过来的参数渲染两个组件，图标和标题
 export default {
   name: 'MenuItem',
   functional: true,

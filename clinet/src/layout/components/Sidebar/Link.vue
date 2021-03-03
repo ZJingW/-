@@ -6,6 +6,7 @@
 </template>
 
 <script>
+//根据是外链还是内部链接，分别渲染为普通链接a或者router-link
 import { isExternal } from '@/utils/validate'
 
 export default {

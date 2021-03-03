@@ -1,3 +1,4 @@
+
 <template>
   <div class="navbar">
     <hamburger
@@ -25,9 +26,6 @@
         <el-dropdown-menu slot="dropdown">
           <router-link to="/profile/index">
             <el-dropdown-item>个人中心</el-dropdown-item>
-          </router-link>
-          <router-link to="/">
-            <el-dropdown-item>概览</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided @click.native="logout">
             <span style="display:block;">登出</span>
@@ -63,6 +61,8 @@ export default {
     }
   }
 }
+//定义了菜单栏的组成：一个汉堡栏、一个面包栏、一个下拉菜单
+//下拉菜单包含两项：主界面、登出操作
 </script>
 
 <style lang="scss" scoped>

@@ -22,7 +22,7 @@ class Token extends Model {
       getToken({ userId: user.id, tokenId: token.id, role: user.role })
     )
   }
-
+//查询token
   static async hasToken(tokenId) {
     const token = await Token.findOne({ where: { id: tokenId } })
     if (token === null) {
@@ -31,7 +31,7 @@ class Token extends Model {
       return true
     }
   }
-
+//删除token
   static async deleteById(tokenId) {
     await Token.destroy({ where: { id: tokenId } })
   }

@@ -2,23 +2,17 @@
 const bcrypt = require("bcryptjs")
 const { sysConfig } = require("../config")
 
-/**
- * 加密密码
- * @param {String} password
- */
 function hash(password) {
+  //加密的幂次 默认是10 sysConfig.pwdSaltRound
+  //同步加密  随机字符串
   var salt = bcrypt.genSaltSync(sysConfig.pwdSaltRound)
+  //对明文就是密码进行加密
   let result = bcrypt.hashSync(password, salt)
   return result
 }
 
-/**
- * 验证加密密码
- * @param {String} password
- * @param {String} hashPassword
- * @returns {Boolean}
- */
 function verify(password, hashPassword) {
+  //验证比对，返回true表示一致，false表示不一致
   return bcrypt.compareSync(password, hashPassword)
 }
 

@@ -144,7 +144,7 @@ router.post("/addAdmin", async ctx => {
     throw new Error("403-拒绝访问API")
   }
   let { name, account, phone, password, role } = ctx.request.body
-  utils.checkParams({ name, account, phone, password, role })
+  utils.checkParams({ name, account, phone, password, role })//检查参数对象中的key是否完整的
   if ((await User.findByAccount(account)) !== null) {
     const e = new Error("400-该学号/职工号已被注册")
     throw e

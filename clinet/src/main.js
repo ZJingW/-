@@ -1,3 +1,4 @@
+//main.js是vue的入口函数，逻辑简单就是导入需要的库，并挂载到id为app的DOM节点上
 import Vue from 'vue'
 
 import Cookies from 'js-cookie'
@@ -17,7 +18,7 @@ import './icons' // icon
 import './permission' // permission control
 import './utils/error-log' // error log
 
-import * as filters from './filters' // global filters
+import * as filters from './icons/filters' // global filters
 import moment from 'moment'
 import VCharts from 'v-charts'
 

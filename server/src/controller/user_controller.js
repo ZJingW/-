@@ -1,12 +1,9 @@
 const { User } = require("../model")
-const _ = require("lodash")
+const _ = require("lodash")//降低使用javascript的一个工具库
 const RecordController = require("./record_controller")
 
 module.exports = {
-  /**
-   * 获取学生用户的完整信息
-   * @param {Number} userId
-   */
+//获取学生用户的完整信息 一个
   async getStudentInfo(userId) {
     const student = await User.findOne({
       where: { id: userId },
@@ -31,12 +28,10 @@ module.exports = {
     return info
   },
 
-  /**
-   * 获取学生用户们的完整信息
-   * @param {Array} users
-   */
+//获取学生用户们的完整信息
+ 
   async getStudentsInfo(users) {
-    const cloneUsers = _.cloneDeep(users)
+    const cloneUsers = _.cloneDeep(users)//深拷贝啊不影响users本身
     for (let user of cloneUsers) {
       delete user.dataValues.password
       delete user.dataValues.deletedAt

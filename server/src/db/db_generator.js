@@ -11,7 +11,7 @@ const Building = require("../model/building_model")
 const Cleaner = require("../model/cleaner_model")
 const Evaluate = require("../model/evaluate_model")
 
-// 创建表关系
+//表之间的关系，外键和一对一 、一对多、多对多关系
 User.hasMany(Token)
 User.hasMany(CleanRecord)
 User.hasMany(BackRecord)
@@ -145,7 +145,7 @@ async function createDefaultData() {
 
 module.exports = function() {
   // 同步表数据
-  console.log("DataBase Syncing ... ...")
+  console.log("数据库异步启动中 ... ...")
   db.sequelize
     .sync({
       force: databaseConfig.rebuild
@@ -156,6 +156,6 @@ module.exports = function() {
       }
     })
     .then(() => {
-      console.log("DataBase Sync done")
+      console.log("数据库异步启动完成")
     })
 }

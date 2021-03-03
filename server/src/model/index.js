@@ -1,4 +1,5 @@
 module.exports = {
+  //模型：告诉Sequelize如何映射数据库表的
   User: require("./user_model"),
   Token: require("./token_model"),
   CleanRecord: require("./cleanRecord_model"),

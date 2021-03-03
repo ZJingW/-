@@ -1,5 +1,5 @@
 import store from '@/store'
-
+//被layout混入的基类，实现自动适应屏幕大小的功能，主动是识别什么设备和是否关闭侧边菜单
 const { body } = document
 const WIDTH = 992 // refer to Bootstrap's responsive design
 

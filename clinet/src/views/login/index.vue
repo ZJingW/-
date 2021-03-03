@@ -118,33 +118,34 @@ import { register } from '@/api/user'
 export default {
   name: 'Login',
   data() {
-    const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('密码需要6位以上'))
-      } else {
-        callback()
-      }
-    }
-    const validatorRepassword = (rule, value, callback) => {
-      if (value !== this.loginForm.password && this.registerMode) {
-        callback(new Error('两次密码不符合'))
-      } else {
-        callback()
-      }
-    }
+    //取消验证
+    // const validatePassword = (rule, value, callback) => {
+    //   if (value.length < 6) {
+    //     callback(new Error('密码需要6位以上'))
+    //   } else {
+    //     callback()
+    //   }
+    // }
+    // const validatorRepassword = (rule, value, callback) => {
+    //   if (value !== this.loginForm.password && this.registerMode) {
+    //     callback(new Error('两次密码不符合'))
+    //   } else {
+    //     callback()
+    //   }
+    // }
     return {
       loginForm: {
         account: '',
         password: '',
         repassword: ''
       },
-      loginRules: {
-        account: [{ required: true, trigger: 'blur' }],
-        password: [
-          { required: true, trigger: 'blur', validator: validatePassword }
-        ],
-        repassword: [{ validator: validatorRepassword, trigger: 'blur' }]
-      },
+      // loginRules: {
+      //   account: [{ required: true, trigger: 'blur' }],
+      //   password: [
+      //     { required: true, trigger: 'blur', validator: validatePassword }
+      //   ],
+      //   repassword: [{ validator: validatorRepassword, trigger: 'blur' }]
+      // },
       passwordType: 'password',
       registerMode: false,
       capsTooltip: false,
@@ -157,8 +158,10 @@ export default {
     $route: {
       // 路由重定向
       handler: function(route) {
+        //route 是old之前的路由
         const query = route.query
         if (query) {
+          //自动跳转到指定的页面
           this.redirect = query.redirect
           this.otherQuery = this.getOtherQuery(query)
         }
@@ -180,6 +183,7 @@ export default {
       const { key } = e
       this.capsTooltip = key && key.length === 1 && key >= 'A' && key <= 'Z'
     },
+    //显示密码
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -207,7 +211,7 @@ export default {
               this.loading = false
             })
         } else {
-          console.log('error submit!!')
+          console.log('提交错误!!!')
           return false
         }
       })
@@ -225,7 +229,7 @@ export default {
             this.registerMode = false
           })
         } else {
-          console.log('error submit!!')
+          console.log('提交错误!!!')
           return false
         }
       })

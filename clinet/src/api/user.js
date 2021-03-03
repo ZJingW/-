@@ -20,7 +20,7 @@ export function login(data) {
 
 export function getInfo() {
   return request({
-    //  获取用户信息
+    //获取用户信息
     url: '/user/info',
     method: 'get'
   })

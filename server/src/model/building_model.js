@@ -12,10 +12,12 @@ class Building extends Model {
       return true
     }
   }
+  //添加楼宇
   static async createBuilding({ name }) {
     const building = await Building.create({ name })
     return building
   }
+  //添加管理员
   static async addAdmin(buildingId, userId) {
     try {
       const building = await Building.findOne({ where: { id: buildingId } })
@@ -26,6 +28,7 @@ class Building extends Model {
       throw new Error("已存在该管理员，添加失败")
     }
   }
+  //添加保洁员
   static async addCleaner(buildingId, cleanerId) {
     try {
       const cleaner = await Cleaner.findOne({ where: { id: cleanerId } })
@@ -35,6 +38,7 @@ class Building extends Model {
       throw new Error("添加保洁员失败")
     }
   }
+  //添加楼层
   static async addFloor(buildingId, floor) {
     try {
       floor.buildingId = buildingId

@@ -1,4 +1,5 @@
 const getters = {
+  //函数映射，函数直接返回相应的数据。
   // app
   sidebar: state => state.app.sidebar,
   size: state => state.app.size,

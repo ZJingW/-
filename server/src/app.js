@@ -49,6 +49,7 @@ app.use(
 )
 
 // jwt 处理   secret:密钥
+// 设置login、register接口，可以不需要认证访问
 app.use(
   koaJwt({ secret: sysConfig.tokenSalt }).unless({ //不需要验证token就可以访问到的api
     path: [

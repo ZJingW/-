@@ -23,7 +23,7 @@ Floor.init(
     },
     buildingId: {
       type: DataTypes.INTEGER,
-      references: {
+      references: { //外键
         model: Building,
         key: "id"
       },

@@ -51,7 +51,7 @@ import { isExternal } from '@/utils/validate'
 import Item from './Item'
 import AppLink from './Link'
 import FixiOSBug from './FixiOSBug'
-
+//侧边菜单栏的菜单项，相关注意说明已经在代码中展示，虽然看起来很复杂，但是整个逻辑还是很简单的。可以多揣摩揣摩
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },

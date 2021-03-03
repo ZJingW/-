@@ -1,3 +1,4 @@
+//index.js的一个副本
 import Vue from 'vue'
 import Router from 'vue-router'
 
